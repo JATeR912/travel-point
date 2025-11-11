@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TravelPoint</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            padding: 0 2rem;
+            background-color: #333;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+        }
+
+        nav a:hover {
+            background-color: #575757;
+            border-radius: 4px;
+        }
+
+        .filters {
+            margin: 1rem;
+            text-align: center;
+        }
+
+        .filters button {
+            padding: 0.5rem 1rem;
+            margin: 0.5rem;
+            border: none;
+            border-radius: 4px;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+
+        .filters button:hover {
+            background-color: #45a049;
+        }
+
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 1rem;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            margin: 1rem;
+            width: 250px;
+            overflow: hidden;
+        }
+
+        .card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 1rem;
+        }
+
+        .card-content h3 {
+            margin-top: 0;
+        }
+
+        .favorite {
+            background-color: #ff6b6b;
+            color: white;
+            border: none;
+            padding: 0.5rem;
+            width: 100%;
+            cursor: pointer;
+            border-radius: 0 0 8px 8px;
+        }
+
+        .favorite:hover {
+            background-color: #ff4c4c;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>TravelPoint</h1>
+        <p>Encuentra los mejores destinos según la temporada</p>
+    </header>
+
+    <nav>
+        <div>
+            <a href="#">Inicio</a>
+            <a href="#">Destinos</a>
+            <a href="#">Favoritos</a>
+        </div>
+        <div>
+            <a href="#">Login</a>
+            <a href="#">Registro</a>
+        </div>
+    </nav>
+
+    <section class="filters">
+        <button data-season="primavera">Primavera</button>
+        <button data-season="verano">Verano</button>
+        <button data-season="otoño">Otoño</button>
+        <button data-season="invierno">Invierno</button>
+        <button data-season="todas">Todas</button>
+    </section>
+
+    <section class="cards">
+        <div class="card">
+            <img src="https://via.placeholder.com/250x150" alt="Destino 1">
+            <div class="card-content">
+                <h3>Playa Dorada</h3>
+                <p>Una hermosa playa ideal para verano.</p>
+            </div>
+            <button class="favorite">❤️ Agregar a favoritos</button>
+        </div>
+        <div class="card">
+            <img src="https://via.placeholder.com/250x150" alt="Destino 2">
+            <div class="card-content">
+                <h3>Montaña Azul</h3>
+                <p>Perfecta para disfrutar del otoño y senderismo.</p>
+            </div>
+            <button class="favorite">❤️ Agregar a favoritos</button>
+        </div>
+        <!-- Agrega más tarjetas según los destinos disponibles -->
+    </section>
+</body>
+</html>

@@ -1,0 +1,14 @@
+.hero {
+    background-image: url('../../img/imagen_hero.png'); 
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 5rem 1rem; /* mismo padding que tenías */
+    border-radius: 0.5rem;
+    text-align: center;
+}
+.hero-overlay {
+    background-color: rgba(0,0,0,0.5);
+    padding: 5rem 1rem;
+    border-radius: 0.5rem;
+}

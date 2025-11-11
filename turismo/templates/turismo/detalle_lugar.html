@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{{ lugar.nombre }}</h1>
+<p><strong>Ciudad:</strong> {{ lugar.ciudad }}</p>
+<p><strong>Categoría:</strong> {{ lugar.categoria }}</p>
+<p><strong>Descripción:</strong> {{ lugar.descripcion }}</p>
+{% if lugar.imagen %}
+<img src="{{ lugar.imagen.url }}" class="img-fluid">
+{% endif %}
+
+{% endblock %}

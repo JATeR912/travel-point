@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="hero mb-4">
+    <div class="hero-overlay">
+        <h1 class="display-4 fw-bold">Explora Festivales en Japón</h1>
+        <p class="lead">Descubre y guarda tus eventos culturales favoritos con TravelPoint</p>
+        {% if user.is_authenticated %}
+            <a href="{% url 'lista_lugares' %}" class="btn btn-primary btn-lg">Ver Lugares</a>
+        {% else %}
+            <a href="{% url 'login' %}" class="btn btn-success btn-lg">Inicia Sesión</a>
+        {% endif %}
+    </div>
+</div>
+
+<div class="container">
+    <h1 class="mb-4">Lugares Turísticos</h1>
+    <div class="row">
+        {% for lugar in lugares %}
+        <div class="col-md-4">
+            <div class="card mb-3">
+                {% if lugar.imagen %}
+                <img src="{{ lugar.imagen.url }}" class="card-img-top" alt="{{ lugar.nombre }}">
+                {% endif %}
+                <div class="card-body">
+                    <h5 class="card-title">{{ lugar.nombre }}</h5>
+                    <p class="card-text">{{ lugar.ciudad }}</p>
+                    {% if user.is_authenticated %}
+                    {% if user.is_staff %}
+                        <a href="{% url 'editar_lugar' lugar.pk %}" class="btn btn-warning">Editar</a>
+                        <a href="{% url 'eliminar_lugar' lugar.pk %}" class="btn btn-danger">Eliminar</a>
+                    {% endif %}
+                    <a href="{% url 'detalle_lugar' lugar.pk %}" class="btn btn-primary">Ver detalles</a>
+                {% else %}
+                    <a href="{% url 'login'%}" class="btn btn-primary"> Iniciar sesion para Ver detalles</a>
+                {% endif %}
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+</div>
+{% endblock %}
