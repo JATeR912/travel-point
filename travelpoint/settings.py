@@ -75,7 +75,7 @@ WSGI_APPLICATION = 'travelpoint.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
-DATABASES = {
+""" DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'travelpoint_db',          # Nombre de la base de datos
@@ -84,8 +84,14 @@ DATABASES = {
         'HOST': 'localhost',         # Servidor de MySQL
         'PORT': '3306',              # Puerto por defecto
     }
-}
+} """
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
