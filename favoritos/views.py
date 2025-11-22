@@ -21,7 +21,7 @@ def quitar_favorito(request, lugar_id):
     if favorito.exists():
         favorito.delete()
         messages.warning(request, f"{lugar.nombre} se quitó de tus favoritos.")
-    return redirect('detalle_lugar', pk=lugar.id)
+    return redirect('lista_lugares') 
 
 @login_required
 def lista_favoritos(request):

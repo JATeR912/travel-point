@@ -5,43 +5,56 @@
 
 <!-- HERO -->
 <div class="hero mb-4">
-    <div class="hero-overlay">
+    <div class="hero-overlay text-center">
         <h1 class="display-5 fw-bold">Explora Festivales en Japón</h1>
         <p class="lead">Descubre y guarda tus eventos culturales favoritos con TravelPoint</p>
 
         {% if user.is_authenticated %}
             <a href="{% url 'lista_favoritos' %}" class="btn btn-primary btn-lg mt-2">Ver mis Favoritos</a>
         {% else %}
-            <a href="{% url 'registro' %}" class="btn btn-primary btn-lg mt-2">Regístrate aquí</a>
-            <a href="{% url 'login' %}" class="btn btn-success btn-lg mt-2">Iniciar Sesión</a>
+            <a href="{% url 'registro' %}" class="btn btn-primary btn-lg mt-2">Regístrate</a>
+            <a href="{% url 'login' %}" class="btn btn-success btn-lg mt-2">Inicia Sesión</a>
         {% endif %}
     </div>
 </div>
 
 <div class="container">
-    <h1 class="mb-4">Lugares Turísticos</h1>
-    <div class="row">
+    <h1 class="mb-4 text-center">Lugares Turísticos</h1>
+
+    <div class="row g-4">
         {% for lugar in lugares %}
-        <div class="col-md-4 mb-4">
-            <div class="card h-100">
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex">
+            <div class="card h-100 shadow-sm d-flex flex-column">
+
                 {% if lugar.imagen %}
-                <img src="{{ lugar.imagen.url }}" class="card-img-top" alt="{{ lugar.nombre }}">
+                <img src="{{ lugar.imagen.url }}" class="card-img-top img-fluid" alt="{{ lugar.nombre }}">
                 {% endif %}
+
                 <div class="card-body d-flex flex-column">
                     <h5 class="card-title">{{ lugar.nombre }}</h5>
                     <p class="card-text">{{ lugar.ciudad }}</p>
+
                     <div class="mt-auto">
                         {% if user.is_authenticated %}
+
                             {% if user.is_staff %}
-                                <a href="{% url 'editar_lugar' lugar.pk %}" class="btn btn-warning mb-2">Editar</a>
-                                <a href="{% url 'eliminar_lugar' lugar.pk %}" class="btn btn-danger mb-2">Eliminar</a>
+                                <a href="{% url 'editar_lugar' lugar.pk %}" class="btn btn-warning w-100 mb-2">Editar</a>
+                                <a href="{% url 'eliminar_lugar' lugar.pk %}" class="btn btn-danger w-100 mb-2">Eliminar</a>
+                            {% else %}
+                                <form method="POST" action="{% url 'agregar_favorito' lugar.pk %}">
+                                    {% csrf_token %}
+                                    <button class="btn btn-warning w-100 mb-2">⭐ Agregar a Favoritos</button>
+                                </form>
                             {% endif %}
-                            <a href="{% url 'detalle_lugar' lugar.pk %}" class="btn btn-primary">Ver detalles</a>
+
+                            <a href="{% url 'detalle_lugar' lugar.pk %}" class="btn btn-primary w-100">Ver detalles</a>
+
                         {% else %}
-                            <a href="{% url 'login' %}" class="btn btn-primary">Iniciar sesión para ver detalles</a>
+                            <a href="{% url 'login' %}" class="btn btn-primary w-100">Iniciar sesión para Ver detalles</a>
                         {% endif %}
                     </div>
                 </div>
+
             </div>
         </div>
         {% endfor %}

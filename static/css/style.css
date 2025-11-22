@@ -1,9 +1,6 @@
+/* Animación de alertas */
 .alert {
   transition: opacity 0.5s ease-out;
-}
-
-.alert.fade {
-  opacity: 0;
 }
 /* Imágenes siempre fluidas */
 img {

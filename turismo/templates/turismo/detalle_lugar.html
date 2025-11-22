@@ -32,7 +32,10 @@
                     <a href="{% url 'editar_lugar' lugar.pk %}" class="btn btn-warning w-100 mb-2">Editar</a>
                     <a href="{% url 'eliminar_lugar' lugar.pk %}" class="btn btn-danger w-100 mb-2">Eliminar</a>
                 {% else %}
-                    <a href="{% url 'in'}"
+                    <form method="POST" action="{% url 'agregar_favorito' lugar.pk %}">
+                        {% csrf_token %}
+                        <button class="btn btn-warning w-100 mb-2">⭐ Agregar a Favoritos</button>
+                    </form>
                 {% endif %}
 
             {% endif %}
