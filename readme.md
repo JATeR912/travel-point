@@ -33,11 +33,6 @@ travelpoint/
 │  └─ settings.py
 ├─ turismo/                 <-- Aplicacion lugares turisticos
 │  ├─ templates/turismo/
-│  ├─ static/turismo/
-│  │  ├─ js/
-│  │  ├─ img/
-│  │  └─ css/
-│  │     └─ style.css
 │  ├─ views.py
 │  ├─ urls.py
 │  └─ models.py
@@ -51,11 +46,16 @@ travelpoint/
 │  ├─ login.html
 │  ├─ register.html
 │  └─ logout.html
-├─ static/                  <-- Archivos estaticos generales
+├─ static/ 
+│  ├─ turismo/
+│  │  ├─ js/
+│  │  ├─ img/
+│  │  └─ css/
+│  │     └─ style_turismo.css                
 │  ├─ js/
 │  ├─ img/
 │  └─ css/
-│     └─ style.css
+│     └─ style.css          <-- Archivos estaticos generales
 └─ media/
 ```
 
