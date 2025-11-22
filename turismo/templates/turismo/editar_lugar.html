@@ -1,11 +1,16 @@
 {% extends 'base.html' %}
 {% block content %}
-<h2>Editar lugar: {{ lugar.nombre }}</h2>
 
-<form method="POST" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit" class="btn btn-primary">Actualizar</button>
-    <a href="{% url 'detalle_lugar' lugar.pk %}" class="btn btn-secondary">Cancelar</a>
-</form>
+<div class="crud-container">
+    <h2 class="crud-title">Editar: {{ lugar.nombre }}</h2>
+
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <button type="submit" class="btn btn-primary w-100 mt-3">Actualizar</button>
+        <a href="{% url 'detalle_lugar' lugar.pk %}" class="btn btn-secondary w-100 mt-2">Cancelar</a>
+    </form>
+</div>
+
 {% endblock %}

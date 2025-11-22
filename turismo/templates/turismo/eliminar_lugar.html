@@ -1,11 +1,19 @@
 {% extends 'base.html' %}
 {% block content %}
-<h2>Eliminar lugar</h2>
-<p>¿Estás seguro que deseas eliminar <strong>{{ lugar.nombre }}</strong>?</p>
 
-<form method="POST">
-    {% csrf_token %}
-    <button type="submit" class="btn btn-danger">Sí, eliminar</button>
-    <a href="{% url 'detalle_lugar' lugar.pk %}" class="btn btn-secondary">Cancelar</a>
-</form>
+<div class="crud-container">
+    <h2 class="crud-title text-danger">Eliminar lugar</h2>
+
+    <p class="text-center fs-5">
+        ¿Estás seguro que deseas eliminar<br>
+        <strong>{{ lugar.nombre }}</strong>?
+    </p>
+
+    <form method="POST" class="text-center mt-3">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger w-100 mb-2">Sí, eliminar</button>
+        <a href="{% url 'detalle_lugar' lugar.pk %}" class="btn btn-secondary w-100">Cancelar</a>
+    </form>
+</div>
+
 {% endblock %}

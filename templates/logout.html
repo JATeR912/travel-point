@@ -1,6 +1,12 @@
 {% extends 'base.html' %}
+
 {% block content %}
-<h2>Has cerrado sesión</h2>
-<a href="{% url 'login' %}" class="btn btn-success">Iniciar sesión de nuevo</a>
-<a href="{% url 'lista_lugares' %}" class="btn btn-primary">Volver al inicio</a>
+<div class="auth-container text-center">
+
+    <h2 class="auth-title">Has cerrado sesión</h2>
+
+    <a href="{% url 'login' %}" class="btn btn-success w-100 mb-2">Iniciar sesión de nuevo</a>
+    <a href="{% url 'lista_lugares' %}" class="btn btn-primary w-100">Volver al inicio</a>
+
+</div>
 {% endblock %}
