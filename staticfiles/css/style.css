@@ -1,0 +1,78 @@
+.alert {
+  transition: opacity 0.5s ease-out;
+}
+
+.alert.fade {
+  opacity: 0;
+}
+/* Imágenes siempre fluidas */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Cards con sombra suave */
+.card {
+    transition: transform 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+}
+
+/* Espaciado global */
+.container {
+    padding-bottom: 2rem;
+}
+/* CONTENEDOR GENERAL PARA PÁGINAS DE LOGIN, REGISTER Y LOGOUT */
+.auth-container {
+    max-width: 420px;
+    margin: 2rem auto;
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 25px rgba(0,0,0,0.10);
+}
+
+/* Títulos */
+.auth-title {
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+/* Enlace de registro/login */
+.auth-link {
+    text-align: center;
+}
+/* Contenedor para formularios CRUD */
+.crud-container {
+    max-width: 650px;
+    margin: 2rem auto;
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 25px rgba(0,0,0,0.12);
+}
+
+/* Títulos uniformes */
+.crud-title {
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+.error-container {
+    max-width: 550px;
+    margin: 3rem auto;
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 25px rgba(0,0,0,0.12);
+    text-align: center;
+}
+
+.error-code {
+    font-size: 4rem;
+    font-weight: 800;
+    color: #dc3545; /* rojo Bootstrap */
+}

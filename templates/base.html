@@ -13,6 +13,36 @@
 
     <!-- Estilos específicos de turismo (hero, cards, etc) -->
     <link rel="stylesheet" href="{% static 'turismo/css/style_turismo.css' %}">
+    <style>
+        /* HERO */
+        .hero {
+            background-image:url("../static/img/imagen_hero.png");
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 4rem 1rem;
+            border-radius: 0.5rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-overlay {
+            background-color: rgba(0, 0, 0, 0.55);
+            padding: 4rem 1rem;
+            border-radius: 0.5rem;
+        }
+
+        /* MOBILE FIX */
+        @media (max-width: 576px) {
+            .hero {
+                padding: 3rem 1rem;
+            }
+            .hero-overlay {
+                padding: 3rem 1rem;
+            }
+        }
+
+    </style>
 </head>
 <body>
 
