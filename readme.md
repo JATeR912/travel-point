@@ -8,6 +8,7 @@ TravelPoint es una aplicación web desarrollada en Django que permite a los usua
 
 - **Exploración de lugares turísticos**: Los usuarios pueden ver información básica de los lugares, incluyendo nombre, ciudad e imagen.
 - **Detalles completos para usuarios autenticados**: Solo los usuarios registrados pueden acceder a la descripción completa de los lugares.
+- **Lista de favoritos para usuarios autenticados**: Solo los usuarios registrados pueden crear una lista con sus lugares favoritos.
 - **CRUD de lugares turísticos**:  
   - Solo administradores del proyecto pueden crear, editar o eliminar lugares.  
   - Se implementa control de permisos con decoradores de Django.
@@ -27,25 +28,41 @@ TravelPoint es una aplicación web desarrollada en Django que permite a los usua
 ```bash
 travelpoint/
 ├─ manage.py
-├─ travelpoint/
+├─ travelpoint/             <-- Proyecto
+│  ├─ urls.py
 │  └─ settings.py
-├─ turismo/
+├─ turismo/                 <-- Aplicacion lugares turisticos
 │  ├─ templates/turismo/
 │  ├─ static/turismo/
+│  │  ├─ js/
+│  │  ├─ img/
+│  │  └─ css/
+│  │     └─ style.css
+│  ├─ views.py
+│  ├─ urls.py
 │  └─ models.py
-├─ templates/
+├─ favoritos/               <-- Aplicacion favoritos (usuarios autenticados)
+│  ├─ templates/favoritos/
+│  ├─ views.py
+│  ├─ urls.py
+│  └─ models.py
+├─ templates/               <-- Templates generales
 │  ├─ base.html
 │  ├─ login.html
 │  ├─ register.html
 │  └─ logout.html
-├─ static/
+├─ static/                  <-- Archivos estaticos generales
+│  ├─ js/
+│  ├─ img/
+│  └─ css/
+│     └─ style.css
 └─ media/
 ```
 
 ## Uso
 Acceder a la página principal para ver la lista de lugares turísticos.
 
-Registrarse o iniciar sesión para acceder a detalles completos.
+Registrarse o iniciar sesión para acceder a detalles completos y añadir a favoritos.
 
 Solo administradores pueden crear, editar o eliminar lugares desde la interfaz web.
 

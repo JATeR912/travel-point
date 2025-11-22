@@ -7,6 +7,7 @@ from turismo import views as turismo_views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('turismo.urls')),
+    path('favoritos/', include('favoritos.urls')),
 ]
 
 # Handlers de errores personalizados

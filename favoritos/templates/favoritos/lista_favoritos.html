@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Mis Favoritos - TravelPoint{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="mb-4 text-center">Mis Lugares Favoritos</h2>
+
+    {% if favoritos %}
+        <div class="row">
+            {% for fav in favoritos %}
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow-sm h-100">
+                        {% if fav.lugar.imagen %}
+                            <img src="{{ fav.lugar.imagen.url }}" class="card-img-top" alt="{{ fav.lugar.nombre }}">
+                        {% else %}
+                            <img src="{% static 'img/imagen_hero.png' %}" class="card-img-top" alt="Sin imagen">
+                        {% endif %}
+                        <div class="card-body">
+                            <h5 class="card-title">{{ fav.lugar.nombre }}</h5>
+                            <p class="card-text text-muted">{{ fav.lugar.descripcion|truncatewords:20 }}</p>
+                            <a href="{% url 'detalle_lugar' fav.lugar.id %}" class="btn btn-primary btn-sm">Ver Detalle</a>
+                            <a href="{% url 'quitar_favorito' fav.lugar.id %}" class="btn btn-danger btn-sm">Quitar</a>
+                        </div>
+                        <div class="card-footer text-muted small">
+                            Agregado el {{ fav.fecha_agregado|date:"d/m/Y" }}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="alert alert-info text-center">
+            Aún no tienes lugares en favoritos.  
+            <a href="{% url 'lista_lugares' %}" class="alert-link">Explora lugares</a> y agrega algunos.
+        </div>
+    {% endif %}
+</div>
+{% endblock %}
